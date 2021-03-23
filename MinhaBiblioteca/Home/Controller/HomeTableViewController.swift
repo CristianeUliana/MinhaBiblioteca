@@ -120,7 +120,7 @@ class HomeTableViewController: UITableViewController, NSFetchedResultsController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let celula = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
-        
+        celula.tag = indexPath.row
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(mostrarDetalhes(_ :)))
         
         guard let livro = gerenciadorDeResultados?.fetchedObjects![indexPath.row] else {return celula}
