@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         return appDelegate.persistentContainer.viewContext
     }
     
-    
+    var livro:Livro?
     
     
     
@@ -35,18 +35,30 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.setup()
     }
 
     
+    //MARK: - Métodos
     
+    func setup() {
+        guard let livroSelecionado = livro else {return}
+        
+        tituloTextField.text = livroSelecionado.titulo
+        autorTextField.text = livroSelecionado.autor
+        editoraTextField.text = livroSelecionado.editora
+        anoTextField.text = livroSelecionado.ano
+    }
     
     @IBAction func salvarButton(_ sender: UIButton) {
-        let livro = Livro(context: contexto)
-        livro.titulo = tituloTextField.text
-        livro.autor = autorTextField.text
-        livro.editora = editoraTextField.text
-        livro.ano = anoTextField.text
+        if livro == nil {
+            livro = Livro(context: contexto)
+        }
+        
+        livro?.titulo = tituloTextField.text
+        livro?.autor = autorTextField.text
+        livro?.editora = editoraTextField.text
+        livro?.ano = anoTextField.text
         //livro.favorito = favoritoSwitch
         
         do {
