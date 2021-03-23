@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var editoraTextField: UITextField!
     @IBOutlet weak var anoTextField: UITextField!
     @IBOutlet weak var favoritoSwitch: UISwitch!
+    @IBOutlet weak var scrollPrincipal: UIScrollView!
     
     
     // MARK: - Atributos
@@ -35,9 +36,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(aumentarScroll(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        
         self.setup()
     }
 
+    
+    @objc func aumentarScroll(notification:Notification) {
+        self.scrollPrincipal.contentSize = CGSize(width: self.scrollPrincipal.frame.width, height: self.scrollPrincipal.frame.height + 320)
+    }
     
     //MARK: - Métodos
     
