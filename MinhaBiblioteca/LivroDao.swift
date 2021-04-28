@@ -14,7 +14,7 @@ class LivroDao: NSObject {
     
     // MARK: - Variáveis
     
-    let homeTableViewController = HomeTableViewController()
+    var homeTableViewController = HomeTableViewController()
     var gerenciadorDeResultados:NSFetchedResultsController<Livro>?
     var contexto:NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

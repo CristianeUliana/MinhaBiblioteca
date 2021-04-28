@@ -14,7 +14,7 @@ class HomeTableViewController: UITableViewController {
     
     // MARK: - Variáveis
     
-    var livroViewController: ViewController?
+    var livroViewController: ViewController!
     var livroDao = LivroDao()
     var lista: [Livro] = []
    
