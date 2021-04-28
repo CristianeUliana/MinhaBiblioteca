@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     }
     
     var livro:Livro?
+    var livroDao = LivroDao()
     
     
     
@@ -60,16 +61,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func salvarButton(_ sender: UIButton) {
+
+        
         if livro == nil {
             livro = Livro(context: contexto)
         }
-        
+
         livro?.titulo = tituloTextField.text
         livro?.autor = autorTextField.text
         livro?.editora = editoraTextField.text
         livro?.ano = anoTextField.text
-        //livro.favorito = favoritoSwitch
-        
+
+
         do {
             try contexto.save()
             navigationController?.popViewController(animated: true)

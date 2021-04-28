@@ -1,0 +1,6 @@
+framework module Pods_MinhaBiblioteca_MinhaBibliotecaUITests {
+  umbrella header "Pods-MinhaBiblioteca-MinhaBibliotecaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

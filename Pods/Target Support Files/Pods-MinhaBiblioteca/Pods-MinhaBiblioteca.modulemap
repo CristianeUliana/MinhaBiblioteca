@@ -1,0 +1,6 @@
+framework module Pods_MinhaBiblioteca {
+  umbrella header "Pods-MinhaBiblioteca-umbrella.h"
+
+  export *
+  module * { export * }
+}
